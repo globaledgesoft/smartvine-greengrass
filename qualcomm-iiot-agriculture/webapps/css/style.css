@@ -1,0 +1,297 @@
+body {
+    background-color: rgba(158, 158, 158, 0.08);
+    background-size: 100% 100%;
+    /*background-repeat: no-repeat;*/
+}
+
+tspan,
+select,
+.control-label,
+h3,
+h4,
+text,
+.image-info {
+    font-family: 'Lato', sans-serif;
+}
+
+.highcharts-plot-border {
+    fill: rgba(158, 158, 158, 0.29);
+    ;
+}
+
+div#pie_chart .highcharts-plot-border {
+    fill: none;
+    height: 0px;
+    width: 0px;
+}
+
+#processing .highcharts-legend {
+    visibility: hidden;
+}
+
+.highcharts-grid-line {
+    visibility: hidden;
+}
+
+#pieChartInfoText {
+    position: absolute;
+    margin-top: -75px;
+    margin-left: 4px;
+}
+
+.highcharts-axis-title {
+    fill: rgba(0, 0, 0, 0.74)!important;
+}
+
+.highcharts-title {
+    font-size: 18px!important;
+    font-weight: normal;
+    fill: rgba(0, 0, 0, 0.74)!important;
+}
+
+div#pie_chart .highcharts-container {
+    margin-left: 12px;
+}
+
+#pie_chart {
+    margin-left: 60px;
+}
+
+.addText {
+    position: relative;
+}
+
+div#progress_weather .highcharts-container {
+    margin-left: 85px;
+    border-bottom: 1px solid grey
+}
+
+div#progress_weather .highcharts-plot-border {
+    fill: none;
+    height: 0px;
+    width: 0px;
+}
+
+path#pie_chart {
+    fill: red!important;
+}
+
+.highcharts-background {
+    height: 0px;
+    width: 0px;
+}
+
+.highcharts-plot-background {
+    height: 0px;
+    width: 0px;
+}
+
+
+/*
+.form-inline{
+  margin-top:8px;
+}
+*/
+
+img.weather {
+    margin-left: -100px;
+    height: 95px;
+    margin-top: 10px;
+}
+
+img.icons {
+    margin-top: 21px;
+    height: 76px;
+    margin-bottom: 21px;
+}
+
+*img#img {
+    margin-top: 19px;
+}
+
+.cell {
+    color: #6fb59f;
+    margin-top: -31%;
+    margin-left: 55%;
+    border-left: 1px solid #6fb59f!important;
+}
+
+.cell text {
+    font-weight: normal!important;
+}
+
+#pie_chart div svg text {
+    text-anchor: end;
+}
+
+#pie_chart div g text {
+    text-anchor: start;
+}
+
+#progress_weather div svg text {
+    text-anchor: middle;
+}
+
+.highcharts-axis-labels.highcharts-yaxis-labels text,
+.highcharts-axis-labels.highcharts-xaxis-labels text {
+    fill: rgba(0, 0, 0, 0.74)!important;
+}
+
+.textColor {
+    color: #22aed2;
+    font-weight: bold;
+}
+
+g.highcharts-legend-item text>tspan {
+    fill: rgba(0, 0, 0, 0.74)!important;
+    ;
+    font-weight: bold;
+}
+
+.highcharts-legend-item.highcharts-point {
+    fill: none;
+}
+
+#moisture_chart .highcharts-point,
+#temp_chart .highcharts-point,
+#light_chart .highcharts-point {
+    fill: none;
+}
+
+
+/*//bar chart//*/
+
+#processing .highcharts-axis.highcharts-xaxis {
+    visibility: hidden;
+}
+
+rect.highcharts-legend-box {
+    visibility: hidden;
+}
+
+text {
+    font-weight: bold;
+}
+
+#processing .highcharts-container {
+    margin-left: 50px;
+    width: 224px;
+    height: 300px;
+}
+
+#divider .highcharts-container {
+    border-bottom: 1px solid;
+}
+
+.row div:not(:first-child) {
+    border-left: 1px solid #000;
+}
+
+.row {
+    padding: 13px;
+}
+
+.border-bottom1 {
+    border-bottom: 1px solid;
+    margin-left: -15px;
+}
+
+.border-bottom2 {
+    border-bottom: 1px solid;
+    margin-left: 30px;
+    width: 350px;
+}
+
+.border-bottom3 {
+    border-bottom: 1px solid;
+    width: 354px;
+    margin-left: 30px;
+}
+
+.main-div {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.middle-div {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+/*.inner-div:not(:.cell) {
+ text-align: center;
+  margin-left: auto;
+  margin-right: auto; 
+}*/
+
+.inner-div {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-info {
+    font-size: 55px;
+    color: #ffffff;
+}
+
+.info-img-display {
+    display: inline-table;
+}
+
+@media only screen and (min-width:670px) {
+    .infoScreen {
+        height: 100%;
+        padding: 5%;
+        min-height: 670px;
+    }
+}
+
+
+/*@media only screen and (min-width: 1200px) { .infoScreen {
+ height: 100%;
+ padding: 5%;
+ min-height:1629px;
+   } }*/
+
+.control-label {
+    margin-top: 7px;
+}
+
+.lang-div {
+    margin-top: 5px;
+}
+
+.select-style {
+    border: 1px solid #ccc;
+    width: 120px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #fafafa url("../images/down-arrow.png") no-repeat 90% 50%;
+}
+
+select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.empty-p {
+    margin-top: 5px;
+}
+
+.empty-progress {
+    margin: 0px!important;
+}
+
+.normal-font {
+    color: #000000;
+}

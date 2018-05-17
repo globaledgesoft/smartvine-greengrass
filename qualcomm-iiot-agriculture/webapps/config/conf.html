@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html data-ng-app="ShowLog">
+
+<head>
+    <title>Config Info</title>
+    <link href="../vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+        .header {
+            font-size: 22px;
+            text-align: center;
+        }
+        
+        .jumbotron {
+            margin-top: 10px;
+            border-radius: 3px;
+            border: 1px solid green;
+            padding-top: 5px;
+            padding-bottom: 15px;
+        }
+        
+        .form-group {
+            padding-top: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .control-label {
+            margin-top: 7px;
+        }
+        
+        .col-md-4 {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+    </style>
+</head>
+
+<body data-ng-controller="confController">
+    <div class="col-md-10  col-md-offset-1 jumbotron">
+        <div class="header">Please Provide Field values and Submit!</div>
+        <form novalidate>
+            <div class="form-group">
+                <div class="col-md-4" align="right">
+                    <label for="label1" class="control-label">City Name</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="label1" data-ng-model="Obj1.cityName" placeholder="Enter City Name">
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" data-ng-click="submitConfValues(Obj1)" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+        <!-- <form novalidate>
+            <div class="form-group">
+                <div class="col-md-4" align="right">
+                    <label for="label2" class="control-label">Name</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="label2" data-ng-model="Obj2.label2" placeholder="Enter Name">
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" data-ng-click="submitConfValues(Obj2)" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+        <form novalidate>
+            <div class="form-group">
+                <div class="col-md-4" align="right">
+                    <label for="label3" class="control-label">Name</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="label3" data-ng-model="Obj3.label3" placeholder="Enter Name">
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" data-ng-click="submitConfValues(Obj3)" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+        <form novalidate>
+            <div class="form-group">
+                <div class="col-md-4" align="right">
+                    <label for="label4" class="control-label">Name</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="label4" data-ng-model="Obj4.label4" placeholder="Enter Name">
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" data-ng-click="submitConfValues(Obj4)" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+        <form novalidate>
+            <div class="form-group">
+                <div class="col-md-4" align="right">
+                    <label for="label5" class="control-label">Name</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" id="label5" data-ng-model="Obj5.label5" placeholder="Enter Name">
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" data-ng-click="submitConfValues(Obj5)" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form> -->
+        <!-- <div class = "form-group" align="right">
+		   <button type = "submit" data-ng-click="submitConfValues(Obj)" class = "btn btn-primary">Submit</button>
+		 </div> -->
+    </div>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/bootstrap.min.js"></script>
+    <!-- Load Angular -->
+    <script src="../vendor/angular/angular.min.js"></script>
+    <script src="../vendor/angular/angular-sanitize.min.js"></script>
+    <script src="../vendor/angular/angular-route.js"></script>
+
+
+    <script type="text/javascript">
+        var urlLocation = window.location.href;
+        urlLocation = urlLocation.split("/");
+        var authId = localStorage.getItem('token');
+        var urlAddress = urlLocation[0] + "//" + urlLocation[2];
+        var app = angular.module('ShowLog', ['ngRoute', 'ngSanitize']);
+        app.controller('confController', function($scope, $http, $interval, $timeout, loadConf) {
+
+            $scope.loadConfValues = function() {
+                loadConf.load().then(function onSuccess(data) {
+                    if (data.data != null) {
+                        console.log(data);
+                        $scope.Obj1 = data.data;
+                    }
+                    if (data.data == null) {
+                        alert(data.message);
+                    }
+
+                }).catch(function onError(response) {
+                    if (response.status == 401) {
+                        alert('not Authorized');
+                    }
+                });
+            }
+            $scope.submitConfValues = function(data) {
+                console.log(data);
+                if (data && data.cityName != '') {
+                    loadConf.send(data).then(function onSuccess(data) {
+                        if (data.data == "true") {
+                            alert('Updated Successfully!');
+                        }
+                        if (data.data == "false") {
+                            alert(data.message);
+                        }
+
+                    }).catch(function onError(response) {
+                        if (response.status == 401) {
+                            alert('Not Authorized');
+                        }
+                    });
+                } else {
+                    alert('Please Fill Field!');
+                }
+            }
+            $scope.loadConfValues();
+        });
+        app.service('loadConf', function($http) {
+            return {
+                load: function() {
+                    console.log();
+                    var req = {
+                        method: 'GET',
+                        url: urlAddress + "/getDefaultValues"
+                    }
+                    return $http(req).then(function(response) {
+                        return response.data;
+                    });
+                },
+                send: function(data) {
+                    console.log();
+                    var req = {
+                        method: 'GET',
+                        url: urlAddress + "/updateDefaultCity?cityName=" + data.cityName
+                    }
+                    return $http(req).then(function(response) {
+                        return response.data;
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html data-ng-app="greengrassApp">
+
+<head>
+    <title>AWS Seeding Screens</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, minimal-ui" />
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="vendor/animate/animate.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+
+</head>
+
+<body data-ng-controller="greengrassController">
+    <div class="main-div" style="background-image: url({{currentBackImage}}">
+        <div class="middle-div">
+            <div class="inner-div">
+                <div class="col-md-12 col-lg-12 lang-div" data-ng-show="langOpt">
+                    <div class="col-md-3 col-lg-3">
+                        <div class="col-md-6 col-lg-6">
+                            <label for="sel1" class="control-label">{{langLabel}}</label>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <select data-ng-model="currentLang" ng-options="lang.name for lang in availLangs" data-ng-change="changeLang()" class="form-control select-style"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-lg-9"></div>
+                </div>
+                <div class="container" data-ng-show="container">
+                    <div class="row">
+                        <div class=" col-md-4">
+                            <div id="temp_chart"></div>
+                        </div>
+                        <div class=" col-md-4">
+                            <div id="moisture_chart"></div>
+                        </div>
+                        <div class=" col-md-4">
+                            <div id="light_chart" class="addText"></div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="col-md-4 border-bottom1"></div>
+                        <div class="col-md-4 border-bottom2"></div>
+                        <div class="col-md-4 border-bottom3"></div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div id="pie_chart"></div>
+                        </div>
+                        <div class=" col-md-4">
+                            <div id="processing"></div>
+                            <p class="empty-p">&nbsp;</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div id="progress_weather"></div>
+
+                            <img class="weather" src="images/cloud.png" alt="cloud">
+                            <div class='cell'>
+                                <h3>{{we.temperature}}</h3>
+                                <h4>{{we.condition}}</h4><text class="normal-font">{{weather.humidity}}:{{we.humidity}}% <br> {{weather.wind}}: {{we.windSpeed}} {{weather.windIn}}<br>{{weather.pressure}}:{{we.pressure}} {{weather.pressureIn}}</text>
+                            </div>
+                            <p class="empty-progress">&nbsp;</p>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div data-ng-show="infoScreen" class="infoScreen">
+                    <div class="col-md-12 col-lg-12">
+                        <div>
+                            <img src="{{currentImageUrl}}" class="img-responsive info-img-display" />
+                        </div>
+                        <div class="image-info">{{currentImageInfo}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- load Jquery -->
+    <script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
+    <!-- load Bootstrap -->
+    <script type="text/javascript" src="vendor/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Load Angular -->
+    <script src="vendor/angular/angular.min.js"></script>
+    <!-- <script src="vendor/angular/angular-sanitize.min.js"></script>
+<script src="vendor/angular/angular-route.js"></script> -->
+
+    <!-- App -->
+    <!-- <script type="text/javascript" src="js/angular/app.js"></script> -->
+
+    <!-- Controllers -->
+    <script type="text/javascript" src="js/angualr/controller/AWS_Controller.js"></script>
+    <!-- Services -->
+    <script type="text/javascript" src="js/angualr/services/getDetails.js"></script>
+
+
+    <!-- load Highcharts -->
+    <script type="text/javascript" src="vendor/highcharts/highcharts.js"></script>
+    <script type="text/javascript" src="js/lang/lang.js"></script>
+    <!-- Socket Connection -->
+    <script src="../socket.io/socket.io.js"></script>
+</body>
+
+</html>

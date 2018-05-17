@@ -1,0 +1,181 @@
+var langSet = [{
+        "en1": [
+
+            "Frost conditions detected",
+            "Edge gateway using AWS Greengrass  runs local Lambda functions and  triggers immediate action.",
+            "Fans activated."
+
+        ],
+        "en2": [
+
+            "Drought conditions detected.",
+            "Edge gateway using AWS Greengrass  runs local Lambda functions and  triggers immediate action.",
+            "Irrigation activated.",
+            "High moisture conditions detected.",
+            "Edge gateway using AWS Greengrass  runs local Lambda functions and  triggers immediate action.",
+            "Irrigation suspended."
+
+        ],
+        "en3": [
+            "High UV conditions detected.",
+            "Edge gateway using AWS Greengrass runslocal Lambda functions to record growth conditions and creates trend analytics.",
+            "Data analysis transmitted to cloud in scheduled reporting period."
+        ],
+        "en4": [{
+            "current": "Partly Cloudy",
+            "humidity": "Humidity",
+            "wind": "Wind NE",
+            "windIn": "mph",
+            "pressure": "Pressure",
+            "pressureIn": "in Hg"
+        }]
+
+    },
+    {
+        "mnd1": [
+            "检测到冰霜条件",
+            "使用AWS Greengrass的Edge网关运行本地Lambda函数并触发立即操作。",
+            "粉丝已启动。"
+        ],
+        "mnd2": [
+            "检测到干旱条件。",
+            "使用AWS Greengrass的Edge网关运行本地Lambda函数并触发立即操作。",
+            "灌溉激活。",
+            "检测到高湿度条件。",
+            "使用AWS Greengrass的Edge网关运行本地Lambda函数并触发立即操作。",
+            "灌溉暂停。"
+        ],
+        "mnd3": [
+            "检测到高紫外线条件。",
+            "使用AWS Greengrass的边缘网关运行 本地Lambda功能来记录增长 条件并创建趋势分析。",
+            "数据分析传输到云 在预定的报告期内。"
+        ],
+        "mnd4": [{
+            "current": "局部阴天",
+            "humidity": "湿度",
+            "wind": "风东北",
+            "windIn": "英里",
+            "pressure": "压力",
+            "pressureIn": "在汞"
+        }]
+
+    }
+];
+var langChart = [{
+            "en": [{
+                    "heading": "Temperature",
+                    "yAxis": "Temperature (C)",
+                    "xAxis": "Time"
+                },
+                {
+                    "heading": "Moisture",
+                    "yAxis": "Moisture level",
+                    "xAxis": "Time"
+                },
+                {
+                    "heading": "Light",
+                    "yAxis": "UV index",
+                    "xAxis": "Time"
+                },
+                {
+                    "heading": "Data Savings",
+                    "name": [{
+                            "item": "Sent to Cloud"
+                        },
+                        {
+                            "item": "Processed Locally"
+                        }
+                    ]
+                },
+                {
+                    "heading": "Edge Computing",
+                    "yAxis": "Processing Time (Milliseconds)",
+                    "name": [{
+                            "item": "Sent to Cloud"
+                        },
+                        {
+                            "item": "Processed Locally"
+                        }
+                    ]
+                },
+                {
+                    "heading": "Water Savings"
+                }
+            ]
+        },
+        {
+
+            "mnd": [{
+                    "heading": "温度 ",
+                    "yAxis": "温度（℃）",
+                    "xAxis": "时间"
+                },
+                {
+                    "heading": "湿气",
+                    "yAxis": "湿气",
+                    "xAxis": "时间"
+                },
+                {
+                    "heading": "光",
+                    "yAxis": "紫外线指数",
+                    "xAxis": "时间"
+                },
+                {
+                    "heading": "数据节省",
+                    "name": [{
+                            "item": "发送到云"
+                        },
+                        {
+                            "item": "本地处理"
+                        }
+                    ]
+
+                },
+                {
+                    "heading": "边缘计算",
+                    "yAxis": "处理时间（小时）",
+                    "name": [{
+                            "item": "发送到云"
+                        },
+                        {
+                            "item": "本地处理"
+                        }
+                    ]
+                },
+                {
+                    "heading": "节水"
+                }
+
+            ]
+        }
+    ]
+    //var weatherLang =
+
+
+var purpleInfoLang, blueInfolang, yellowInfolang, areaChart1Lang, areaChart2Lang, areaChart3Lang, peiChartLang, barChartLang, processChartLang;
+//lang = 'en';
+// if (lang == 'en') {
+//     purpleInfoLang = langSet[0].en1;
+//     blueInfolang = langSet[0].en2;
+//     yellowInfolang = langSet[0].en3;
+//     areaChart1Lang = langChart[0].en[0];
+//     areaChart2Lang = langChart[0].en[1];
+//     areaChart3Lang = langChart[0].en[2];
+//     peiChartLang = langChart[0].en[3];
+//     barChartLang = langChart[0].en[4];
+//     processChartLang = langChart[0].en[5];
+//     weatherInfo = langSet[0].en4[0];
+
+// }
+// if (lang == 'mnd') {
+//     purpleInfoLang = langSet[1].mnd1;
+//     blueInfolang = langSet[1].mnd2;
+//     yellowInfolang = langSet[1].mnd3;
+//     areaChart1Lang = langChart[1].mnd[0];
+//     areaChart2Lang = langChart[1].mnd[1];
+//     areaChart3Lang = langChart[1].mnd[2];
+//     peiChartLang = langChart[1].mnd[3];
+//     barChartLang = langChart[1].mnd[4];
+//     processChartLang = langChart[1].mnd[5];
+//     weatherInfo = langSet[1].mnd4[0];
+// }
