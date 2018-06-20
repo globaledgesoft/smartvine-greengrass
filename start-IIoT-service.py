@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-import autoip
 import os
 
 os.system('sudo pm2 stop all')

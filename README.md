@@ -23,17 +23,18 @@ Once it is created, move to the newly created executables folder.
 ```
 $> cd executables
 ```
-Copy the given tar ball to that executables folder and extract it (remove the tar file if you want) using the following command.
+Clone the project inside executables folder
 
 ```
-$> tar -xvf IIOT-Projects.tar.gz
+$> git clone https://github.com/globaledgesoft/smartvine-greengrass.git
 ```
-Move to the extracted folder and it will be your project's home folder
+After cloning change the folder name to IIOT-Projects (Since, the name has been referred inside the project)
 
 ```
+$> mv smartvine-greengrass IIOT-Projects
 $> cd IIOT-Projects
 ```
-Create a empty folder for SQLite3 db file.
+Create a empty folder for SQLite3 db file inside IIOT-Projects.
 
 ```
 $> mkdir sqlite-db
@@ -50,20 +51,8 @@ step 1: Assuming you have created the fan device in the AWS IOT cloud with neces
 step 2: Inside fan device folder there will be
 
     a) certs directory, please place the certificates related to fan in that folder and note down the absolute path of the file which will be configured inside the config.ini file as explained in the next step.
-    
-    b) config.ini file which have 5 sections 
-    
-        i) In the certsinfo section configure the absolute path of the certificates with privatekeypath and certificatepath variable. The rootcapath file will be created dynamically once the application is up and running so, for that configure the project root path with file name gg-CA.crt for eg. ~/executables/IIOT-Projects/gg-CA.crt (replace ~ with the actual folder path). 
-        
-        ii) In the resturls section, change the IP in the url with the IP of the 410c board. 
-        
-        iii) In the deviceinfo section change the Fan name with the client id (IOT device name) which you have created in Amazon AWS IOT portal. 
-        
-        iv) In the hostinfo section change the value of hostip with IP of the 410c board and leave the hostport untouched. 
-        
-        v) In the mqttinfo section is the topic where the fan has to listen for the event. In case changing please note down the name.
-        
-    c) fan-device.py is the executable file - There is no change in that.
+                   
+    b) fan-device.py is the executable file - check for the line 15 where we have configured the actual path of the config.ini file, please change it if required (In this case, the config.ini file will be found in ~/executables/IIOT-Projects/config.ini).
 
 * Configuring temperature device
 
@@ -73,21 +62,9 @@ step 2: Inside temperature device folder there will be
 
     a) certs directory, please place the certificates related to temperature in that folder and note down the absolute path of the file which will be configured inside the config.ini file as explained in the next step.
     
-    b) config.ini file which have 5 sections 
+    b) temp-device.py is the executable file - check for the line 19 where we have configured the actual path of the config.ini file, please change it if required (In this case, the config.ini file will be found in ~/executables/IIOT-Projects/config.ini).
     
-        i) In the database section configure the absolute path of the db file. eg. ~/executables/IIOT-Projects/sqlite-db/data.db (replace ~ with the actual folder path). 
-        
-        ii) In the certsinfo section configure the absolute path of the certificates with privatekeypath  and certificatepath variable. The rootcapath file will be created dynamically once the application is up and running so, for that configure the project root path with file name gg-CA.crt for eg. ~/executables/IIOT-Projects/gg-CA.crt (replace ~ with the actual folder path).
-        
-        iii) In the deviceinfo section change the Temperature name with the client id (IOT device name) which you have created in Amazon AWS IOT portal. 
-        
-        iv) In the hostinfo section change the value of hostip with IP of the 410c board and leave the hostport untouched. 
-        
-        v) In the mqttinfo section is the topic where the temperature device has to publish the event. In case changing please note down the name.
-        
-    c) temp-device.py is the executable file - There is no change in that.
-    
-    d) temperature.py is the one which actually reads the value from the board - There is no change in that.
+    c) temperature.py is the one which actually reads the value from the board - There is no change in that.
     
     
 * Configuring rgb_led device
@@ -98,19 +75,7 @@ step 2: Inside rgb_led device folder there will be
 
     a) certs directory, please place the certificates related to rgb_led in that folder and note down the absolute path of the file which will be configured inside the config.ini file as explained in the next step.
     
-    b) config.ini file which have 5 sections 
-    
-        i) In the certsinfo section configure the absolute path of the certificates with privatekeypath  and certificatepath variable. The rootcapath file will be created dynamically once the application is up and running so, for that configure the project root path with file name gg-CA.crt for eg. ~/executables/IIOT-Projects/gg-CA.crt (replace ~ with the actual folder path). 
-        
-        ii) In the resturls section, change the IP in the url with the IP of the 410c board. 
-        
-        iii) In the deviceinfo section change the RGB_LED name with the client id (IOT device name) which you have created in Amazon AWS IOT portal. 
-        
-        iv) In the hostinfo section change the value of hostip with IP of the 410c board and leave the hostport untouched. 
-        
-        v) In the mqttinfo section is the topic where the RGB_LED has to listen for the event. In case changing please note down the name.
-        
-    c) rgb-led-device.py is the executable file - There is no change in that.
+    b) rgb-led-device.py is the executable file - check for the line 15 where we have configured the actual path of the config.ini file, please change it if required (In this case, the config.ini file will be found in ~/executables/IIOT-Projects/config.ini).
     
     
 * Configuring moisture device
@@ -121,21 +86,23 @@ step 2: Inside moisture device folder there will be
 
     a) certs directory, please place the certificates related to moisture in that folder and note down the absolulte path of the file which will be configured inside the config.ini file as explained in the next step.
     
-    b) config.ini file which  have 6 sections 
-    
-        i) In the database section configure the absolute path of the db file. eg. ~/executables/IIOT-Projects/sqlite-db/data.db (replace ~ with the actual folder path). 
-        
-        ii) In the resturls section, change the IP in the url with the IP of the 410c board. 
-        
-        iii) In the certsinfo section configure the absolute path of the certificates with privatekeypath  and certificatepath variable. The rootcapath file will be created dynamically once the application is up and running so, for that configure the project root path with file name gg-CA.crt for eg. ~/executables/IIOT-Projects/gg-CA.crt (replace ~ with the actual folder path).
-        
-        iv) In the deviceinfo section change the Moisture name with the client id (IOT device name) which you have created in Amazon AWS IOT portal. 
-        
-        v) In the hostinfo section, change the value of the hostip with IP of the 410c board and leave the hostport untouched. 
-        
-        vi) in the mqttinfo  section is the topic where the moisture has to publish the events. In case changing please not down the name.
-    
-    c) light_moisture-device.py is the executable file - There is no change in that.
+    b) light_moisture-device.py is the executable file - check for the line 15 where we have configured the actual path of the config.ini file, please change it if required (In this case, the config.ini file will be found in ~/executables/IIOT-Projects/config.ini).
+
+* Configuring config.ini file
+
+This file have 6 sections
+
+    a) In the database section, change the dbpath where you have created the sqlite-db folder.
+
+    b) In the certsinfo section configure the absolute path of the certificates with privatekeypath  and certificatepath variable. The rootcapath file will be created dynamically once the application is up and running so, for that configure the project root path with file name gg-CA.crt for eg. ~/executables/IIOT-Projects/gg-CA.crt (replace ~ with the actual folder path). 
+
+    c) In the resturls section, change the IP in the url with the IP of the 410c board.
+
+    d) In the deviceinfo section change the devices name with the client id (IOT device name) which you have created in Amazon AWS IOT portal. 
+
+    e) In the mqttinfo section is the topic where the devices has to listen for the event. In case changing please note down the name.
+
+    f) In the hostinfo section change the value of hostip with IP of the 410c board and leave the hostport untouched.
     
 * Configuring get-gg-server-info.js
 
@@ -157,7 +124,7 @@ To start the application launch the following script to start (found in the proj
 Note : Before starting the application ensure that greengrass service is up and running
 
 ```
-$> ./start-application.sh
+$> ./start-IIoT-service.py
 ```
 Enter the linux user password if it requires.
 
@@ -196,5 +163,5 @@ This will list the status of the device applications.
 To stop the application execute the following script to stop (found in the project's root path).
 
 ```
-$> ./stop-application.sh
+$> ./stop-IIoT-service.py
 ```
