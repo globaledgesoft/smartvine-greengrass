@@ -15,7 +15,7 @@
     "body-parser": "1.10.2",
     "consolidate": "^0.13.1",
     "express": "4.11.1",
-    "knex": "~0.10.0",
+    "knex": "~0.20.8",
     "request": "~2.72.0",
     "socket.io": "~1.4.6",
     "sqlite3": "^3.1.13",
